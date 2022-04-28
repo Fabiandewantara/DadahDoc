@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import jwtDecode from "jwt-decode";
 import axios from 'axios';
-import Table from '../../components/table';
 
 const EditConsultation = ()=>{
     const [consuls, setConsuls] = useState([])
@@ -9,14 +8,8 @@ const EditConsultation = ()=>{
     const [doctorId, setDoctorId] = useState('')
     const [consulDate, setConsulDate] = useState('')
     const [info, setInfo] = useState('')
-    const decode = jwtDecode(localStorage.getItem("token"))
-    const columns = [
-        'Id',
-        'doctor Id',
-        'Patient Id',
-        'Consul Date',
-        'Info'
-      ]
+    // const decode = jwtDecode(localStorage.getItem("token"))
+    const decode = JSON.parse(localStorage.getItem("decode"))
 
       const handleUpdate = (e)=>{
           e.preventDefault()
@@ -27,7 +20,7 @@ const EditConsultation = ()=>{
               info
           }
 
-          axios.put(`http://localhost:8080/consultation/${decode.id}`).then((response)=>{
+          axios.put(`http://localhost:8080/consultation/patient/${decode.id}`).then((response)=>{
               setMessage("Update Consul Success!!!")
               e.target.reset()
           }).catch(function (error){
@@ -37,10 +30,10 @@ const EditConsultation = ()=>{
       }
 
       useEffect(()=>{
-          axios.get(`http://localhost:8080/consultations/patient/${decode.id}`).then((response)=>{
+          axios.get(`http://localhost:8080/consultations/${decode.id}`).then((response)=>{
               setConsuls(response.data)
           }).catch((err) => console.log("err", err));
-      },[])
+      },[decode.id])
 
 
       return(
