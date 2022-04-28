@@ -112,20 +112,46 @@ const Profile = ()=>{
             return<>
             <p>{message}</p>
             <form onSubmit={handleSubmitUpdateDoctor}>
-                <input type="text" defaultValue={name} onChange={(e) => setName(e.target.value)} />
-                <input type="date" defaultValue={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
-                <input type="text" defaultValue={birthPlace} onChange={(e) => setBirthPlace(e.target.value)}/>
-                <button type="submit">Edit</button>
+            <table className='table table-hover'>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><input className='form-control' type="text" defaultValue={name} onChange={(e) => setName(e.target.value)} /></td>
+                  </tr>
+                  <tr>
+                    <td>Birth Date</td>
+                    <td><input className='form-control' type="date" defaultValue={birthDate} onChange={(e) => setBirthDate(e.target.value)}/></td>
+                  </tr>
+                  <tr>
+                    <td>Birth Place</td>
+                    <td><input className='form-control' type="text" defaultValue={birthPlace} onChange={(e) => setBirthPlace(e.target.value)}/></td>
+                  </tr>
+                </tbody>
+              </table>               
+                <button className='btn btn-outline-info' type="submit">Edit</button>
             </form>
             </>
         }else if (decode.role === 3){
             return<>
             <p>{message}</p>
             <form onSubmit={handleSubmitUpdatePatient}>
-                <input type="text" defaultValue={name} onChange={(e) => setName(e.target.value)} />
-                <input type="date" defaultValue={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
-                <input type="text" defaultValue={birthPlace} onChange={(e) => setBirthPlace(e.target.value)}/>
-                <button type="submit">Edit</button>
+              <table className='table table-hover'>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><input className='form-control' type="text" defaultValue={name} onChange={(e) => setName(e.target.value)} /></td>
+                  </tr>
+                  <tr>
+                    <td>Birth Date</td>
+                    <td><input className='form-control' type="date" defaultValue={birthDate} onChange={(e) => setBirthDate(e.target.value)}/></td>
+                  </tr>
+                  <tr>
+                    <td>Birth Place</td>
+                    <td><input className='form-control' type="text" defaultValue={birthPlace} onChange={(e) => setBirthPlace(e.target.value)}/></td>
+                  </tr>
+                </tbody>
+              </table>               
+                <button className='btn btn-outline-info' type="submit">Edit</button>
             </form>
             </>
         }
@@ -142,9 +168,19 @@ const Profile = ()=>{
                 <div className="card-body">
                     <p>{message}</p>
                         <form onSubmit={handleSubmitUpdateUser}>
-                            <input type="text" defaultValue={user} onChange={(e) => setUsername(e.target.value)} />
-                            <input type="text" onChange={(e) => setPassword(e.target.value)}/>
-                            <button type="submit">Edit</button>
+                          <table className='table table-hover'>
+                            <tbody>
+                              <tr>
+                                <td>Set New Username</td>
+                                <td><input className='form-control' type="text" defaultValue={user} onChange={(e) => setUsername(e.target.value)} /></td>
+                              </tr>
+                              <tr>
+                                <td>Set New Password</td>
+                                <td><input className='form-control' type="text" onChange={(e) => setPassword(e.target.value)}/></td>
+                              </tr>
+                            </tbody>
+                          </table>                            
+                          <button className='btn btn-outline-info' type="submit">Edit</button>
                         </form>
                 </div>
               </div>              
