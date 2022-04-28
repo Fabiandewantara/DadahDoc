@@ -82,7 +82,7 @@ const AddDoctor = ()=>{
                           <tr>
                             <td>Schedules </td>
                             <td>
-                              <select className='form-control' onChange={(e) => setScheduleId(e.target.value)} defaultValue={''} required>
+                              <select className='form-select' onChange={(e) => setScheduleId(e.target.value)} defaultValue={''} required>
                               <option value={''}>Pilih</option>
                               {
                                   schedules.map((v, index)=>{
