@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import jwtDecode from "jwt-decode";
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const EditConsultation = ()=>{
     const [consuls, setConsuls] = useState([])
@@ -8,8 +9,11 @@ const EditConsultation = ()=>{
     const [doctorId, setDoctorId] = useState('')
     const [consulDate, setConsulDate] = useState('')
     const [info, setInfo] = useState('')
+    const [doctors, setDoctors] = useState([])
     // const decode = jwtDecode(localStorage.getItem("token"))
     const decode = JSON.parse(localStorage.getItem("decode"))
+    let { id } = useParams();
+    
 
       const handleUpdate = (e)=>{
           e.preventDefault()
@@ -20,7 +24,11 @@ const EditConsultation = ()=>{
               info
           }
 
-          axios.put(`http://localhost:8080/consultation/patient/${decode.id}`).then((response)=>{
+          axios.put(`http://localhost:8080/consultation/${id}`,payload,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
               setMessage("Update Consul Success!!!")
               e.target.reset()
           }).catch(function (error){
@@ -30,10 +38,29 @@ const EditConsultation = ()=>{
       }
 
       useEffect(()=>{
-          axios.get(`http://localhost:8080/consultations/${decode.id}`).then((response)=>{
-              setConsuls(response.data)
+        axios.get('http://localhost:8080/doctors',{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
+            setDoctors(response.data)
+        }).catch((err) => console.log("err", err));
+    },[])
+      
+      
+      useEffect(()=>{
+          axios.get(`http://localhost:8080/consultation/${id}`,{
+            headers : {
+                'access_token': localStorage.getItem("token")
+              }
+          }).then((response)=>{
+              setDoctorId(response.data.doctorId)
+              setConsulDate(response.data.consulDate)
+              setInfo(response.data.info)
+              
+              
           }).catch((err) => console.log("err", err));
-      },[decode.id])
+      },[id])
 
 
       return(
@@ -47,7 +74,16 @@ const EditConsultation = ()=>{
                 <div className="card-body">
                     <p>{message}</p>
                         <form onSubmit={handleUpdate}>
-                            <input type="text" defaultValue={doctorId} onChange={(e) => setDoctorId(e.target.value)}/>
+                        <select value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required>
+                            <option value={''}>Pilih</option>
+                            {
+                                doctors.map((v, index)=>{
+                                    return(
+                                        <option key={index} value={v.id}>{v.name} {v.scheduleId}</option>
+                                    )
+                                })
+                            }
+                      </select>&nbsp;
                             <input type="date" defaultValue={consulDate} onChange={(e) => setConsulDate(e.target.value)}/>
                             <input type="text" defaultValue={info} onChange={(e) => setInfo(e.target.value)}/>
                             <button type="submit">Edit</button>

@@ -29,7 +29,7 @@ function App() {
                 <Route path="/doctor/add" element={<RequireAuth><AddDoctor/></RequireAuth>}></Route>
                 <Route path="/consultation/add" element={<RequireAuth><AddConsultation/></RequireAuth>}></Route>
                 <Route path="/logout" element={<RequireAuth></RequireAuth>}></Route>
-                <Route path="/consultation/edit" element={<RequireAuth><EditConsultation/></RequireAuth>}></Route>
+                <Route path="/consultation/edit/:id" element={<RequireAuth><EditConsultation/></RequireAuth>}></Route>
              </Routes>
           </div>         
         </div>
