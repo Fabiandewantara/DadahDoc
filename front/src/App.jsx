@@ -5,8 +5,10 @@ import {
   Register,
   Doctor,
   AddDoctor,
-  AddConsultation
+  AddConsultation,
+  EditConsultation
 } from './pages'
+// import { EditConsultation } from './pages/consultation/edit.jsx'
 import Navbar from './components/navbar';
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -27,6 +29,7 @@ function App() {
                 <Route path="/doctor/add" element={<RequireAuth><AddDoctor/></RequireAuth>}></Route>
                 <Route path="/consultation/add" element={<RequireAuth><AddConsultation/></RequireAuth>}></Route>
                 <Route path="/logout" element={<RequireAuth></RequireAuth>}></Route>
+                <Route path="/consultation/edit" element={<RequireAuth><EditConsultation/></RequireAuth>}></Route>
              </Routes>
           </div>         
         </div>

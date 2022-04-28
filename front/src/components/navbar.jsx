@@ -21,21 +21,20 @@ const Navbar = ()=>{
         }
     },[])
     return (
-        <nav class="navbar navbar-expand-lg  navbar-light bg-light">
-             <Link className='navbar-brand px-3' to="/login"><p class="font-weight-bold">DADAH DOC</p></Link>
+        <nav className="navbar navbar-expand-lg  navbar-light bg-light">
+             <Link className='navbar-brand px-3 font-weight-bold' to="/login">DADAH DOC  <sup>{decode.username}</sup></Link>
         <div className="navbar-item px-3 collapse navbar-collapse">
         </div>
         {decode.role === 1 || decode.role === 2 || decode.role === 3 ? 
             <>
             <Link className='navbar-brand px-3' to="/" exact = "true" style={{fontSize: "15px"}}>Consultation</Link>        
-            {decode.role ===1 ? 
-                <Link className='navbar-brand' to="/doctor" exact = "true" style={{fontSize: "15px"}}>Doctor</Link>:false}
+            {decode.role ===1 ?<Link className='navbar-brand' to="/doctor" exact = "true" style={{fontSize: "15px"}}>Doctor</Link>:false}
             <Link className='navbar-brand' to="/profile" style={{fontSize: "15px"}}>Profile</Link>
             <Link className='navbar-brand' to="/login" style={{fontSize: "15px"}} onClick={()=>{localStorage.clear();  window.location.reload(); }}>Logout</Link></>
          :
          <span className='navbar-brand mb-0'>
-         <img src={Logo} width="50" height="50" className="d-inline-block align-top"  alt=""></img> {decode.username}
-       </span>}
+            <img src={Logo} width="50" height="50" className="d-inline-block align-top"  alt=""></img>
+         </span>}
         </nav>
     )
 }

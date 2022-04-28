@@ -40,9 +40,10 @@ const Register = ()=>{
               <img src={BackgroundLogin} class="card-img-top"  alt=""/>
                 <div class="card-body text-center">
                   <h5 class="card-title">Register</h5>
-                  <div class="alert alert-success" role="alert">
-                        <p>{message}</p>
-                    </div>
+                  {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {message}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>:false}
                     <form onSubmit={handleSubmit}>
                       <div className="form-group p-1">
                         <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"/>
@@ -61,9 +62,9 @@ const Register = ()=>{
                       </div>
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
-                    {/* <div className="pt-1">
-                      <strong><Link className='navbar-brand pt-5' to="/login" style={{fontSize: "0.7rem"}}>Login Here!</Link></strong>
-                    </div>       */}
+                    <div className="pt-1">
+                      <Link to="/login" style={{fontSize: "0.7rem"}}>Login Here!</Link>
+                    </div>      
                 </div>
               </div>
       </div>            
