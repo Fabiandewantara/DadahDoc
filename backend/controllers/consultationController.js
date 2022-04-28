@@ -25,7 +25,8 @@ class consultationController{
                     response = await Consultation.findAll({
                     where:{
                         patientId: patient.id
-                    }
+                    },
+                    include : [Doctor, Patient]
                 })
             }
             else if(req.params.user == "admin"){

@@ -13,9 +13,9 @@ const Table = ({
                         return(
                     <tr key={index}>
 
-                        <td>{data.id}</td>
-                        <td>{data.doctorId}</td>
-                        <td>{data.patientId}</td>
+                        <td>{index + 1}</td>
+                        <td>{data.Doctor.name}</td>
+                        <td>{data.Patient.name}</td>
                         <td>{data.consulDate}</td>
                         <td>{data.info}</td>
                         {decode.role === 3 || decode.role === 1?                 

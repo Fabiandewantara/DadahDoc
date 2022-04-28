@@ -8,11 +8,11 @@ const Consultation = ()=>{
     const [consuls, setConsuls] = useState([])
     const [message, setMessage] = useState('')
     const columns = [
-        'Id',
-        'doctor Id',
-        'Patient Id',
+        'No',
+        'Doctor Name',
+        'Patient Name',
         'Consul Date',
-        'Info'
+        'Problem'
       ]
 
       const handleDelete = (id)=>{
