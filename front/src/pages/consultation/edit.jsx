@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const EditConsultation = ()=>{
     return(
         <p>asd</p>
@@ -5,3 +6,105 @@ const EditConsultation = ()=>{
 }
 
 export default EditConsultation;
+=======
+import { useEffect, useState } from 'react';
+import jwtDecode from "jwt-decode";
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+const EditConsultation = ()=>{
+    const [consuls, setConsuls] = useState([])
+    const [message, setMessage] = useState('')
+    const [doctorId, setDoctorId] = useState('')
+    const [consulDate, setConsulDate] = useState('')
+    const [info, setInfo] = useState('')
+    const [doctors, setDoctors] = useState([])
+    // const decode = jwtDecode(localStorage.getItem("token"))
+    const decode = JSON.parse(localStorage.getItem("decode"))
+    let { id } = useParams();
+    
+
+      const handleUpdate = (e)=>{
+          e.preventDefault()
+
+          const payload = {
+              doctorId,
+              consulDate,
+              info
+          }
+
+          axios.put(`http://localhost:8080/consultation/${id}`,payload,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
+              setMessage("Update Consul Success!!!")
+              e.target.reset()
+          }).catch(function (error){
+              // handle error
+              setMessage(error.response.data.message)
+          })
+      }
+
+      useEffect(()=>{
+        axios.get('http://localhost:8080/doctors',{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
+            setDoctors(response.data)
+        }).catch((err) => console.log("err", err));
+    },[])
+      
+      
+      useEffect(()=>{
+          axios.get(`http://localhost:8080/consultation/${id}`,{
+            headers : {
+                'access_token': localStorage.getItem("token")
+              }
+          }).then((response)=>{
+              setDoctorId(response.data.doctorId)
+              setConsulDate(response.data.consulDate)
+              setInfo(response.data.info)
+              
+              
+          }).catch((err) => console.log("err", err));
+      },[id])
+
+
+      return(
+        <>
+        <div className="row justify-content-header">
+            <div className="col-md-12">
+              <div className="card mb-3 text-center border-primary">
+                  <div className="card-header">
+                    Consultation Edit
+                  </div>
+                <div className="card-body">
+                    <p>{message}</p>
+                        <form onSubmit={handleUpdate}>
+                        <select value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required>
+                            <option value={''}>Pilih</option>
+                            {
+                                doctors.map((v, index)=>{
+                                    return(
+                                        <option key={index} value={v.id}>{v.name} {v.scheduleId}</option>
+                                    )
+                                })
+                            }
+                      </select>&nbsp;
+                            <input type="date" defaultValue={consulDate} onChange={(e) => setConsulDate(e.target.value)}/>
+                            <input type="text" defaultValue={info} onChange={(e) => setInfo(e.target.value)}/>
+                            <button type="submit">Edit</button>
+                        </form>
+                </div>
+              </div>              
+            </div>            
+        </div>
+        </>
+      )
+}
+
+export default EditConsultation;
+
+>>>>>>> 474e24c64ef8055303d8720d428720a5316a8e6f

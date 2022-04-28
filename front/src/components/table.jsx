@@ -21,7 +21,7 @@ const Table = ({
                         {decode.role === 3 || decode.role === 1?                 
                             <td>
                                 <button className="btn btn-sm btn-danger" onClick={()=>{window.confirm('delete this item?') && onDelete(data.id)}}>Delete</button> &nbsp;
-                                <a className="btn btn-sm btn-success" href={`cars/edit/${data.id}`}>Edit</a>   
+                                <a className="btn btn-sm btn-success" href={`consultation/edit/${data.id}`}>Edit</a>   
                             </td>:false
                         }
                     </tr>
