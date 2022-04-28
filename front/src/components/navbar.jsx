@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from "../logonavbar.png"
 import jwtDecode from "jwt-decode";
+import css from "../css/navbar.css"
 
 const Navbar = ()=>{
     let [decode, setDecode] = useState({
@@ -20,11 +21,9 @@ const Navbar = ()=>{
         }
     },[])
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+             <Link className='navbar-brand' to="/login"><p class="font-weight-bold">DADAH DOC</p></Link>
         <div className="navbar-item px-3 collapse navbar-collapse">
-            <span className='navbar-brand mb-0'>
-              <img src={Logo} width="30" height="30" className="d-inline-block align-top"  alt=""></img> {decode.username}
-            </span>
         </div>
         {decode.role === 1 || decode.role === 2 || decode.role === 3 ? 
             <>
@@ -34,9 +33,10 @@ const Navbar = ()=>{
             <Link className='navbar-brand' to="/profile" style={{fontSize: "15px"}}>Profile</Link>
             <Link className='navbar-brand' to="/login" style={{fontSize: "15px"}} onClick={()=>{localStorage.clear();  window.location.reload(); }}>Logout</Link></>
          :
-            <Link className='navbar-brand' to="/login" style={{fontSize: "15px"}}>Login</Link>}
-        
-    </nav>
+         <span className='navbar-brand mb-0'>
+         <img src={Logo} width="50" height="50" className="d-inline-block align-top"  alt=""></img> {decode.username}
+       </span>}
+        </nav>
     )
 }
 
