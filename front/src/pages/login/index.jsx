@@ -3,17 +3,10 @@ import axios from 'axios';
 import { useNavigate  } from 'react-router-dom'
 import {Link} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-<<<<<<< HEAD
 import BackgroundLogin from "../../backgroundLogin.png";
 
 const Login = () => {
 
-=======
-import BackgroundLogin from "../../backgroundLogin.png"
-
-const Login = ()=>{
-  
->>>>>>> 474e24c64ef8055303d8720d428720a5316a8e6f
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -37,33 +30,6 @@ const Login = ()=>{
         setMessage(error.response.data.message)
       })
 
-<<<<<<< HEAD
-  }
-  return (
-    <div className="row justify-content-center">
-      <div className="col-md-4">
-        <div className="card justify-content-center" style={{ width: "20rem" }}>
-          <img src={BackgroundLogin} className="card-img-top" alt="" />
-          <div className="card-body text-center">
-            <h5 className="card-title">Login</h5>
-            {message?<div className="alert alert-danger alert-dismissible fade show" role="alert">
-              {message}
-            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>:false}
-            <form onSubmit={handleSubmit}>
-              <div className="form-group p-1">
-                <input type="text" onChange={(e) => setUsername(e.target.value)} className="form-control" aria-describedby="emailHelp" placeholder="Enter Username" />
-              </div>
-              <div className="form-group p-1">
-                <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control" aria-describedby="emailHelp" placeholder="Enter Password" />
-              </div>
-              <button type="submit" className="btn btn-primary">Login</button>
-            </form>
-            <div className="pt-1">
-              <Link to="/register" style={{ fontSize: "0.7rem" }}>Register Here if you don't have account!</Link>
-            </div>
-          </div>
-=======
 }
     return(
         <div className="row justify-content-center">
@@ -88,7 +54,6 @@ const Login = ()=>{
                       </div>
                     </div>
             </div>            
->>>>>>> 474e24c64ef8055303d8720d428720a5316a8e6f
         </div>
 
     )

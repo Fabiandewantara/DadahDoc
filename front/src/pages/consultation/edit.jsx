@@ -1,26 +1,13 @@
-<<<<<<< HEAD
-const EditConsultation = ()=>{
-    return(
-        <p>asd</p>
-    )
-}
-
-export default EditConsultation;
-=======
 import { useEffect, useState } from 'react';
-import jwtDecode from "jwt-decode";
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const EditConsultation = ()=>{
-    const [consuls, setConsuls] = useState([])
     const [message, setMessage] = useState('')
     const [doctorId, setDoctorId] = useState('')
     const [consulDate, setConsulDate] = useState('')
     const [info, setInfo] = useState('')
     const [doctors, setDoctors] = useState([])
-    // const decode = jwtDecode(localStorage.getItem("token"))
-    const decode = JSON.parse(localStorage.getItem("decode"))
     let { id } = useParams();
     
 
@@ -107,4 +94,3 @@ const EditConsultation = ()=>{
 
 export default EditConsultation;
 
->>>>>>> 474e24c64ef8055303d8720d428720a5316a8e6f

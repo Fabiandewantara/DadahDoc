@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "development": {
     "username": "root",
@@ -26,32 +25,3 @@
     "dialect": "mysql"
   }
 }
-=======
-{
-  "development": {
-    "username": "root",
-    "password": "admin",
-    "database": "db_halodoc",
-    "host": "localhost",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "useUTC": false
-    },
-    "timezone": "+08:00"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
->>>>>>> 474e24c64ef8055303d8720d428720a5316a8e6f
