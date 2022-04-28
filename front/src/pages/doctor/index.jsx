@@ -6,12 +6,12 @@ const Doctor = ()=>{
     const [doctors, setDoctors] = useState([])
     const [message, setMessage] = useState('')
     const columns = [
-        'Id',
+        'No',
         'Name',
         'Birth Date',
         'Birth Place',
-        'Schedule Id',
-        'user Id'
+        'Schedule Time',
+        'Username'
       ]
 
       const handleDelete = (id)=>{
