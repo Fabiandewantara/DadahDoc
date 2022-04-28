@@ -32,8 +32,8 @@ const Register = ()=>{
 
 }
     return(
-        <div className="row justify-content-header">
-            <div className="col-md-12">
+        <div className="row justify-content-center">
+            <div className="col-md-4">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
                     Register Card

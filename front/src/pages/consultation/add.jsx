@@ -53,11 +53,11 @@ const AddConsultation = ()=>{
     },[decode.id])
 
     return(
-        <div className="row justify-content-header">
-            <div className="col-md-12">
+        <div className="row justify-content-center">
+            <div className="col-md-6">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    Add Doctor Card
+                    Add Consultation Card
                   </div>
                 <div className="card-body">
                 {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
