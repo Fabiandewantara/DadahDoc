@@ -28,11 +28,11 @@ const Navbar = ()=>{
         </div>
         {decode.role === 1 || decode.role === 2 || decode.role === 3 ? 
             <>
-            <Link className='navbar-brand' to="/" exact = "true" style={{fontSize: "15px"}}>Consultation</Link>        
+            <Link className='navbar-brand px-3' to="/" exact = "true" style={{fontSize: "15px"}}>Consultation</Link>        
             {decode.role ===1 ? 
                 <Link className='navbar-brand' to="/doctor" exact = "true" style={{fontSize: "15px"}}>Doctor</Link>:false}
             <Link className='navbar-brand' to="/profile" style={{fontSize: "15px"}}>Profile</Link>
-            <Link className='navbar-brand text-sm' to="/login" style={{fontSize: "15px"}} onClick={()=>{localStorage.clear();  window.location.reload(); }}>Logout</Link></>
+            <Link className='navbar-brand' to="/login" style={{fontSize: "15px"}} onClick={()=>{localStorage.clear();  window.location.reload(); }}>Logout</Link></>
          :
             <Link className='navbar-brand' to="/login" style={{fontSize: "15px"}}>Login</Link>}
         
