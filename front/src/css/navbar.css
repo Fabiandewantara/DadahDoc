@@ -1,0 +1,61 @@
+.font-weight-bold{
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.card{
+    margin-left: 30px;
+    margin-top: -550px;
+}
+
+.username{
+    margin-top: 20px;
+}
+
+.inputUsername{
+    margin-top: 10px;
+}
+
+.pass{
+    margin-top: 20px;
+}
+
+.inputPass{
+    margin-top: 10px;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-left: 850px;
+}
+
+.btnPrimary{
+  background-color: #24a0ed; 
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 1px 1px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 120px;
+}
+.register{
+    margin-left: 735px;
+}
+
+.usernameLabel{
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+}
+
+.passwordLabel{
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+}

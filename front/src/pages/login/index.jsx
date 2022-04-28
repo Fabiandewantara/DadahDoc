@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate  } from 'react-router-dom'
 import {Link} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import BackgroundLogin from "../../backgroundLogin.png"
 
 const Login = ()=>{
   
@@ -32,23 +33,36 @@ const Login = ()=>{
 }
     return(
         <div className="row justify-content-header">
-            <div className="col-md-12">
-              <div className="card mb-3 text-center border-primary">
-                  <div className="card-header">
-                    Login Card
-                  </div>
-                <div className="card-body">
+           <img src={BackgroundLogin} width="200" height="650" className="d-inline-block align-top"  alt=""/>
+            <div className="col-sm-7">
                     <p>{message}</p>
-                    <form onSubmit={handleSubmit}>
-                      <input type="text" onChange={(e) => setUsername(e.target.value)} />
-                      <input type="text" onChange={(e) => setPassword(e.target.value)}/>
-                      <button type="submit">Login</button>
-                    </form>
-                    <Link className='navbar-brand' to="/register" style={{fontSize: "15px"}}>Register Patient</Link>
-                </div>
-              </div>              
+                    <form onSubmit={handleSubmit} class="card">
+                    <div class="form-group">
+                      <div class="username">
+                      <label for="exampleInputEmail1" class="usernameLabel">Username</label>
+                      </div>
+                      <div class="inputUsername">
+                      <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="pass">
+                      <label for="exampleInputEmail1" class="passwordLabel">Password</label>
+                      </div>
+                      <div class="inputPass">
+                      <input type="password" onChange={(e) => setPassword(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password"/>
+                      </div>
+                    </div>
+                    <div class="btn">
+                      <button type="submit" class="btnPrimary">Login</button>
+                    </div>
+                    <div class="register">
+                      <Link className='navbar-brand' to="/register" style={{fontSize: "15px"}}>Register Here if you don't have account!</Link>       
+                    </div>
+                    </form>  
             </div>            
         </div>
+
     )
 }
 export default Login;

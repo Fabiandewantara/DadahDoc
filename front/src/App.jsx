@@ -15,7 +15,7 @@ import {RequireAuth, AlreadyLogin} from './privateRoute';
 function App() {
   return (
         <Router>
-          <div className="container">
+          {/* <div className="container"> */}
             <Navbar/>
            <div className="py-5">
               <Routes>
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/logout" element={<RequireAuth></RequireAuth>}></Route>
              </Routes>
           </div>         
-        </div>
+        {/* </div> */}
         </Router>
   );
 }
