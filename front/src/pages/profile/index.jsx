@@ -128,7 +128,7 @@ const Profile = ()=>{
                   </tr>
                 </tbody>
               </table>               
-                <button type="submit">Edit</button>
+                <button className='btn btn-outline-info' type="submit">Edit</button>
             </form>
             </>
         }else if (decode.role === 3){
@@ -151,7 +151,7 @@ const Profile = ()=>{
                   </tr>
                 </tbody>
               </table>               
-                <button type="submit">Edit</button>
+                <button className='btn btn-outline-info' type="submit">Edit</button>
             </form>
             </>
         }
