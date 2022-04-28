@@ -57,7 +57,7 @@ const AddConsultation = ()=>{
             <div className="col-md-6">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    Add Consultation Card
+                    Add Data Consultation
                   </div>
                 <div className="card-body">
                 {message?<div class="alert alert-success alert-dismissible fade show" role="alert">

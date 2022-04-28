@@ -50,7 +50,7 @@ const Consultation = ()=>{
             <div className="col-md-12">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    Consultation Card
+                    Data Consultation
                   </div>
                 <div className="card-body">
                   <p>{message}</p>

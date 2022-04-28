@@ -64,7 +64,7 @@ const EditConsultation = () => {
                 <div className="col-md-6">
                     <div className="card mb-3 text-center border-primary">
                         <div className="card-header">
-                            Consultation Edit
+                            Edit Data Consultation
                         </div>
                         <div className="card-body">
                         {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
