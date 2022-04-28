@@ -25,8 +25,7 @@ class consultationController{
                     response = await Consultation.findAll({
                     where:{
                         patientId: patient.id
-                    },
-                    include : [Doctor, Patient]
+                    }
                 })
             }
             else if(req.params.user == "admin"){
@@ -80,24 +79,16 @@ class consultationController{
             }
             const reqId = +req.params.id
 
-            const consul = await Consultation.findOne({
-                where:{
-                    id: reqId
-                }
-            })
-
             const consulUpdate = await Consultation.update(payload,{
                 where:{
                     id: reqId
                 }
             })
-
-            response = res.status(201).json({
-                consulUpdate,
+            return res.status(201).json({
+                consul: consulUpdate,
                 message : "Update Consultation Success !!!"
             })
 
-            return response
 
         } catch (error) {
             return res.status(500).json(error)

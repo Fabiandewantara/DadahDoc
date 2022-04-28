@@ -26,7 +26,6 @@ const EditConsultation = () => {
             }
         }).then((response) => {
             setMessage("Update Consul Success!!!")
-            e.target.reset()
         }).catch(function (error) {
             // handle error
             setMessage(error.response.data.message)
