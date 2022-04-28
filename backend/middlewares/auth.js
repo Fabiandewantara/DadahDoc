@@ -1,5 +1,5 @@
 const { verifyToken } = require("../helpers/jwt");
-const {User} = require("../models/User");
+const {User} = require("../models");
 
 const authenticate = async(req, res, next)=>{
     try {
@@ -10,7 +10,6 @@ const authenticate = async(req, res, next)=>{
         }
 
         let decoded = verifyToken(req.headers.access_token)
-
         let result = await User.findOne({
             where:{
                 username: decoded.username

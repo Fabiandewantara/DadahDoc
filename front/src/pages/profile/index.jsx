@@ -18,7 +18,11 @@ const Profile = ()=>{
             username,
             password
         }
-        axios.put(`http://localhost:8080/user/${decode.id}`, payload).then((response)=>{
+        axios.put(`http://localhost:8080/user/${decode.id}`, payload,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
             setMessage("Update Berhasil !!!")
         }).catch(function (error) {
           // handle error
@@ -34,7 +38,11 @@ const Profile = ()=>{
             birthDate,
             birthPlace
         }
-        axios.put(`http://localhost:8080/doctor/${decode.id}`, payload).then((response)=>{
+        axios.put(`http://localhost:8080/doctor/${decode.id}`, payload,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
             setMessage("Update Berhasil !!!")
             e.target.reset()
         }).catch(function (error) {
@@ -51,7 +59,11 @@ const Profile = ()=>{
             birthDate,
             birthPlace
         }
-        axios.put(`http://localhost:8080/patient/${decode.id}`, payload).then((response)=>{
+        axios.put(`http://localhost:8080/patient/${decode.id}`, payload,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
             setMessage("Update Berhasil !!!")
             e.target.reset()
         }).catch(function (error) {
@@ -61,20 +73,32 @@ const Profile = ()=>{
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/user/${decode.id}`).then((response)=>{
+        axios.get(`http://localhost:8080/user/${decode.id}`,{
+            headers : {
+              'access_token': localStorage.getItem("token")
+            }
+          }).then((response)=>{
             setUser(response.data.username)
         }).catch((err) => console.log("err", err));
     },[decode.id])
 
         useEffect(()=>{
             if(decode.role === 2){
-                axios.get(`http://localhost:8080/doctor/user/${decode.id}`).then((response)=>{
+                axios.get(`http://localhost:8080/doctor/user/${decode.id}`,{
+                    headers : {
+                      'access_token': localStorage.getItem("token")
+                    }
+                  }).then((response)=>{
                     setName(response.data.name)
                     setBirthDate(response.data.birthDate)
                     setBirthPlace(response.data.birthPlace)
                 }).catch((err) => console.log("err", err));
             }else if (decode.role === 3){
-                axios.get(`http://localhost:8080/patient/user/${decode.id}`).then((response)=>{
+                axios.get(`http://localhost:8080/patient/user/${decode.id}`,{
+                    headers : {
+                      'access_token': localStorage.getItem("token")
+                    }
+                  }).then((response)=>{
                     setName(response.data.name)
                     setBirthDate(response.data.birthDate)
                     setBirthPlace(response.data.birthPlace)

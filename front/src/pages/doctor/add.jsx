@@ -25,7 +25,11 @@ const AddDoctor = ()=>{
         scheduleId
       }
 
-      axios.post('http://localhost:8080/register', payload).then((response)=>{
+      axios.post('http://localhost:8080/register', payload,{
+        headers : {
+          'access_token': localStorage.getItem("token")
+        }
+      }).then((response)=>{
           setMessage("Data Added !!!")
           e.target.reset()
       }).catch(function (error) {
@@ -34,7 +38,11 @@ const AddDoctor = ()=>{
       })    
     }
     useEffect(()=>{
-        axios.get('http://localhost:8080/schedules').then((response)=>{
+        axios.get('http://localhost:8080/schedules',{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             setSchedules(response.data)
         }).catch((err) => console.log("err", err));
     },[])
