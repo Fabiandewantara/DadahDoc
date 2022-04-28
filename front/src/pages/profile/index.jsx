@@ -172,11 +172,11 @@ const Profile = ()=>{
                             <tbody>
                               <tr>
                                 <td>Set New Username</td>
-                                <td><input className='form-control' type="text" defaultValue={user} onChange={(e) => setUsername(e.target.value)} /></td>
+                                <td><input className='form-control' required type="text" defaultValue={user} onChange={(e) => setUsername(e.target.value)} /></td>
                               </tr>
                               <tr>
                                 <td>Set New Password</td>
-                                <td><input className='form-control' type="password" onChange={(e) => setPassword(e.target.value)}/></td>
+                                <td><input className='form-control' required type="password" onChange={(e) => setPassword(e.target.value)}/></td>
                               </tr>
                             </tbody>
                           </table>                            

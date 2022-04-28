@@ -46,19 +46,19 @@ const Register = ()=>{
                 </div>:false}
                     <form onSubmit={handleSubmit}>
                       <div className="form-group p-1">
-                        <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"/>
+                        <input type="text" required onChange={(e) => setUsername(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"/>
                       </div>
                       <div className="form-group p-1">
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"/>
+                        <input type="password" required onChange={(e) => setPassword(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"/>
                       </div>
                       <div className="form-group p-1">
-                        <input type="text" onChange={(e) => setName(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Name"/>
+                        <input type="text" required onChange={(e) => setName(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Name"/>
                       </div>
                       <div className="form-group p-1">
-                        <input type="date" onChange={(e) => setBirthDate(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date"/>
+                        <input type="date" required onChange={(e) => setBirthDate(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date"/>
                       </div>
                       <div className="form-group p-1">
-                        <input type="text" onChange={(e) => setBirthPlace(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date Place"/>
+                        <input type="text" required onChange={(e) => setBirthPlace(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date Place"/>
                       </div>
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
