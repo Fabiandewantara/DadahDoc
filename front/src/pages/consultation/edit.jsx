@@ -81,7 +81,7 @@ const EditConsultation = () => {
                                                 {
                                                     doctors.map((v, index) => {
                                                         return (
-                                                            <option key={index} value={v.id}>{v.name} {v.scheduleId}</option>
+                                                            <option key={index} value={v.id}>{v.name} ({v.Schedule.schedule})</option>
                                                         )
                                                     })
                                                 }
