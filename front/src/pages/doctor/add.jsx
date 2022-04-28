@@ -55,7 +55,10 @@ const AddDoctor = ()=>{
                     Add Doctor Card
                   </div>
                 <div className="card-body">
-                    <p>{message}</p>
+                {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {message}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>:false}
                     <form onSubmit={handleSubmit}>
                       <input type="text" onChange={(e) => setUsername(e.target.value)} />
                       <input type="text" onChange={(e) => setPassword(e.target.value)}/>

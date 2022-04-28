@@ -60,9 +60,16 @@ const AddConsultation = ()=>{
                     Add Doctor Card
                   </div>
                 <div className="card-body">
-                    <p>{message}</p>
+                {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {message}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>:false}
                     <form onSubmit={handleSubmit}>
-                      <select onChange={(e) => setDoctorId(e.target.value)} defaultValue={''} required>
+                      <table className='table table-hover'>
+                        <tbody>
+                          <tr>
+                            <td>Choose Doctor </td>
+                            <td><select className='form-control' onChange={(e) => setDoctorId(e.target.value)} defaultValue={''} required>
                             <option value={''}>Pilih</option>
                             {
                                 doctors.map((v, index)=>{
@@ -71,10 +78,19 @@ const AddConsultation = ()=>{
                                     )
                                 })
                             }
-                      </select>&nbsp;
-                      <input type="date" onChange={(e) => setConsulDate(e.target.value)} />
-                      <input type="text" onChange={(e) => setInfo(e.target.value)}/>
-                      <button type="submit">Add</button>
+                      </select>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>Choose Date  </td>
+                            <td><input type="date" className='form-control' onChange={(e) => setConsulDate(e.target.value)}/></td>
+                          </tr>
+                          <tr>
+                            <td>Input Problem  </td>
+                            <td><input type="text" className='form-control' onChange={(e) => setInfo(e.target.value)}/></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <button className='btn btn-outline-info' type="submit">Add</button>
                     </form>
                 </div>
               </div>              
