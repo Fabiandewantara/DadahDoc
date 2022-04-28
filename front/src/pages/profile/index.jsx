@@ -23,6 +23,9 @@ const Profile = ()=>{
             }
           }).then((response)=>{
             setMessage("Update Berhasil !!!")
+            decode.username = username
+            localStorage.setItem("decode", JSON.stringify(decode))
+            setTimeout(()=>{window.location.reload()},5000);
         }).catch(function (error) {
           // handle error
           setMessage(error.response.data.message)
@@ -165,10 +168,10 @@ const Profile = ()=>{
                     User Card
                   </div>
                 <div className="card-body">
+                  <p>{message}</p>
                         <form onSubmit={handleSubmitUpdateUser}>
                           <table className='table table-hover'>
                             <tbody>
-                                <p>{username}</p>
                               <tr>
                                 <td>Set New Username</td>
                                 <td><input className='form-control' required type="text" defaultValue={username} onChange={(e) => setUsername(e.target.value)} /></td>

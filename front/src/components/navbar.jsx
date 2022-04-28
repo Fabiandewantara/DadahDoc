@@ -21,7 +21,7 @@ const Navbar = ()=>{
     },[])
     return (
         <nav className="navbar navbar-expand-lg  navbar-light bg-light">
-             <Link className='navbar-brand px-3 font-weight-bold' to="/login">DADAH DOC<sup><b><i>{decode.username}</i></b></sup></Link>
+             <Link className='navbar-brand px-3 font-weight-bold' to="/login">DADAH DOC<sup><b><i>{localStorage.getItem("decode")?JSON.parse(localStorage.getItem("decode")).username:false}</i></b></sup></Link>
         <div className="navbar-item px-3 collapse navbar-collapse">
         </div>
         {decode.role === 1 || decode.role === 2 || decode.role === 3 ? 
