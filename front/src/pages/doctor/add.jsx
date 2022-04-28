@@ -52,30 +52,51 @@ const AddDoctor = ()=>{
             <div className="col-md-12">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    Add Doctor Card
+                    Doctor Registration
                   </div>
                 <div className="card-body">
-                {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {message}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>:false}
+                    <p>{message}</p>
                     <form onSubmit={handleSubmit}>
-                      <input type="text" onChange={(e) => setUsername(e.target.value)} />
-                      <input type="text" onChange={(e) => setPassword(e.target.value)}/>
-                      <input type="text" onChange={(e) => setName(e.target.value)}/>
-                      <input type="date" onChange={(e) => setBirthDate(e.target.value)} />
-                      <input type="text" onChange={(e) => setBirthPlace(e.target.value)}/>
-                      <select onChange={(e) => setScheduleId(e.target.value)} defaultValue={''} required>
-                            <option value={''}>Pilih</option>
-                            {
-                                schedules.map((v, index)=>{
-                                    return(
-                                        <option key={index} value={v.id}>{v.schedule}</option>
-                                    )
-                                })
-                            }
-                      </select>&nbsp;
-                      <button type="submit">Add</button>
+                      <table className='table table-hover'>
+                        <tbody>
+                          <tr>
+                            <td>Username  </td>
+                            <td><input type="text" className='form-control' onChange={(e) => setUsername(e.target.value)} /></td>
+                          </tr>
+                          <tr>
+                            <td>Password  </td>
+                            <td><input type="text" className='form-control' onChange={(e) => setPassword(e.target.value)}/></td>
+                          </tr>
+                          <tr>
+                            <td>Name  </td>
+                            <td><input type="text" className='form-control' onChange={(e) => setName(e.target.value)}/></td>
+                          </tr>
+                          <tr>
+                            <td>Birth Date  </td>
+                            <td><input type="date" className='form-control' onChange={(e) => setBirthDate(e.target.value)} /></td>
+                          </tr>
+                          <tr>
+                            <td>Birth Place  </td>
+                            <td><input type="text" className='form-control' onChange={(e) => setBirthPlace(e.target.value)}/></td>
+                          </tr>
+                          <tr>
+                            <td>Schedules </td>
+                            <td>
+                              <select className='form-control' onChange={(e) => setScheduleId(e.target.value)} defaultValue={''} required>
+                              <option value={''}>Pilih</option>
+                              {
+                                  schedules.map((v, index)=>{
+                                      return(
+                                          <option key={index} value={v.id}>{v.schedule}</option>
+                                      )
+                                  })
+                              }
+                              </select>&nbsp;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <button className='btn btn-outline-info' type="submit">Add</button>
                     </form>
                 </div>
               </div>              
