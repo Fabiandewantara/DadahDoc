@@ -5,6 +5,7 @@ import Register from "./login/register";
 import Doctor from "./doctor";
 import AddDoctor from "./doctor/add";
 import AddConsultation from "./consultation/add";
+import EditConsultation from "./consultation/edit";
 
 export {
   Login,
@@ -13,5 +14,7 @@ export {
   Register,
   Doctor,
   AddDoctor,
-  AddConsultation
+  AddConsultation,
+  EditConsultation
+
 }

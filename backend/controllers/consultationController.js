@@ -72,7 +72,32 @@ class consultationController{
     }
     static async update(req, res){
         try {
-            
+            const payload = {
+                doctorId: req.body.doctorId,
+                consulDate: req.body.consulDate,
+                info: req.body.info
+            }
+            const reqId = +req.params.id
+
+            const consul = await Consultation.findOne({
+                where:{
+                    id: reqId
+                }
+            })
+
+            const consulUpdate = await Consultation.update(payload,{
+                where:{
+                    id: reqId
+                }
+            })
+
+            response = res.status(201).json({
+                consulUpdate,
+                message : "Update Consultation Success !!!"
+            })
+
+            return response
+
         } catch (error) {
             return res.status(500).json(response)
         }
