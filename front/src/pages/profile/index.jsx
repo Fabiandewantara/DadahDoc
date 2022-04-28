@@ -25,7 +25,7 @@ const Profile = ()=>{
             setMessage("Update Berhasil !!!")
             decode.username = username
             localStorage.setItem("decode", JSON.stringify(decode))
-            setTimeout(()=>{window.location.reload()},5000);
+            setTimeout(()=>{window.location.reload()},500);
         }).catch(function (error) {
           // handle error
           setMessage(error.response.data.message)
