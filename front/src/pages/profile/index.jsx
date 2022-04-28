@@ -162,13 +162,13 @@ const Profile = ()=>{
             <div className="col-md-6">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    User Card
+                    Edit Username dan Password
                   </div>
                 <div className="card-body">
                         <form onSubmit={handleSubmitUpdateUser}>
                           <table className='table table-hover'>
                             <tbody>
-                                <p>{username}</p>
+                                {/* <p>{username}</p> */}
                               <tr>
                                 <td>Set New Username</td>
                                 <td><input className='form-control' required type="text" defaultValue={username} onChange={(e) => setUsername(e.target.value)} /></td>

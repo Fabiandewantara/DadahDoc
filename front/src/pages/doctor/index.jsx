@@ -40,7 +40,7 @@ const Doctor = ()=>{
             <div className="col-md-12">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    Doctor Card
+                    Data Doctor
                   </div>
                 <div className="card-body">
                     <p>{message}</p>
