@@ -32,34 +32,27 @@ const Login = ()=>{
 
 }
     return(
-        <div className="row justify-content-header">
-           <img src={BackgroundLogin} width="200" height="650" className="d-inline-block align-top"  alt=""/>
-            <div className="col-sm-7">
-                    <p>{message}</p>
-                    <form onSubmit={handleSubmit} class="card">
-                    <div class="form-group">
-                      <div class="username">
-                      <label for="exampleInputEmail1" class="usernameLabel">Username</label>
-                      </div>
-                      <div class="inputUsername">
-                      <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username"/>
+        <div className="row justify-content-center">
+            <div className="col-md-4">
+                    <div class="card justify-content-center" style={{width: "20rem"}}>
+                    <img src={BackgroundLogin} class="card-img-top"  alt=""/>
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Login</h5>
+                              <p>{message}</p>
+                          <form onSubmit={handleSubmit}>
+                            <div className="form-group p-1">
+                              <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"/>
+                            </div>
+                            <div className="form-group p-1">
+                              <input type="password" onChange={(e) => setPassword(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"/>
+                            </div>
+                              <button type="submit" class="btn btn-primary">Login</button>
+                          </form>
+                          <div className="pt-1">
+                            <strong><Link className='navbar-brand pt-5' to="/register" style={{fontSize: "0.7rem"}}>Register Here if you don't have account!</Link></strong>
+                          </div>      
                       </div>
                     </div>
-                    <div class="form-group">
-                      <div class="pass">
-                      <label for="exampleInputEmail1" class="passwordLabel">Password</label>
-                      </div>
-                      <div class="inputPass">
-                      <input type="password" onChange={(e) => setPassword(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password"/>
-                      </div>
-                    </div>
-                    <div class="btn">
-                      <button type="submit" class="btnPrimary">Login</button>
-                    </div>
-                    <div class="register">
-                      <Link className='navbar-brand' to="/register" style={{fontSize: "15px"}}>Register Here if you don't have account!</Link>       
-                    </div>
-                    </form>  
             </div>            
         </div>
 

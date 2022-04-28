@@ -21,8 +21,8 @@ const Navbar = ()=>{
         }
     },[])
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-             <Link className='navbar-brand' to="/login"><p class="font-weight-bold">DADAH DOC</p></Link>
+        <nav class="navbar navbar-expand-lg  navbar-light bg-light">
+             <Link className='navbar-brand px-3' to="/login"><p class="font-weight-bold">DADAH DOC</p></Link>
         <div className="navbar-item px-3 collapse navbar-collapse">
         </div>
         {decode.role === 1 || decode.role === 2 || decode.role === 3 ? 
