@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "123456789",
     "database": "db_halodoc",
     "host": "localhost",
     "dialect": "mysql",
