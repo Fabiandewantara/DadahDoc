@@ -13,7 +13,8 @@ class consultationController{
                     response = await Consultation.findAll({
                     where:{
                         doctorId: doctor.id
-                    }
+                    },
+                    include: [Doctor, Patient]
                 })
             }else if(req.params.user == "patient"){
 
@@ -25,11 +26,14 @@ class consultationController{
                     response = await Consultation.findAll({
                     where:{
                         patientId: patient.id
-                    }
+                    },
+                    include: [Doctor, Patient]
                 })
             }
             else if(req.params.user == "admin"){
-                response = await Consultation.findAll()
+                response = await Consultation.findAll({
+                    include: [Doctor, Patient]
+                })
         }
             return res.status(200).json(response)
 
