@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from "../logonavbar.png"
 import jwtDecode from "jwt-decode";
-import css from "../css/navbar.css"
 
 const Navbar = ()=>{
     let [decode, setDecode] = useState({
