@@ -57,7 +57,7 @@ const AddDoctor = ()=>{
                 <div className="card-body">
                     <p>{message}</p>
                     <form onSubmit={handleSubmit}>
-                      <table className='table'>
+                      <table className='table table-hover'>
                         <tbody>
                           <tr>
                             <td>Username  </td>
