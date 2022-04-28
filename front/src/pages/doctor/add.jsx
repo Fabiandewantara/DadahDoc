@@ -57,7 +57,14 @@ const AddDoctor = ()=>{
                 <div className="card-body">
                     <p>{message}</p>
                     <form onSubmit={handleSubmit}>
-                      <input type="text" onChange={(e) => setUsername(e.target.value)} />
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Username  </td>
+                            <td><input type="text" onChange={(e) => setUsername(e.target.value)} /></td>
+                          </tr>
+                        </tbody>
+                      </table>
                       <input type="text" onChange={(e) => setPassword(e.target.value)}/>
                       <input type="text" onChange={(e) => setName(e.target.value)}/>
                       <input type="date" onChange={(e) => setBirthDate(e.target.value)} />
