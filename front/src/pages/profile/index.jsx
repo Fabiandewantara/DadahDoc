@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Profile = ()=>{
-    const [user, setUser] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
@@ -78,7 +77,7 @@ const Profile = ()=>{
               'access_token': localStorage.getItem("token")
             }
           }).then((response)=>{
-            setUser(response.data.username)
+            setUsername(response.data.username)
         }).catch((err) => console.log("err", err));
     },[decode.id])
 
@@ -170,9 +169,10 @@ const Profile = ()=>{
                         <form onSubmit={handleSubmitUpdateUser}>
                           <table className='table table-hover'>
                             <tbody>
+                                <p>{username}</p>
                               <tr>
                                 <td>Set New Username</td>
-                                <td><input className='form-control' required type="text" defaultValue={user} onChange={(e) => setUsername(e.target.value)} /></td>
+                                <td><input className='form-control' required type="text" defaultValue={username} onChange={(e) => setUsername(e.target.value)} /></td>
                               </tr>
                               <tr>
                                 <td>Set New Password</td>
