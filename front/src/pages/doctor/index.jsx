@@ -15,14 +15,22 @@ const Doctor = ()=>{
       ]
 
       const handleDelete = (id)=>{
-        axios.delete(`http://localhost:8080/doctor/${id}`).then((response)=>{
+        axios.delete(`http://localhost:8080/doctor/${id}`,{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             window.location.reload()
             setMessage("Berhasil Delete !!!")
         }).catch((err) => console.log("err", err));
       }
 
       useEffect(()=>{
-        axios.get('http://localhost:8080/doctors').then((response)=>{
+        axios.get('http://localhost:8080/doctors',{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             setDoctors(response.data)
         }).catch((err) => console.log("err", err));
     },[])

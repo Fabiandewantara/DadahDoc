@@ -16,7 +16,11 @@ const Consultation = ()=>{
       ]
 
       const handleDelete = (id)=>{
-            axios.delete(`http://localhost:8080/consultation/${id}`).then((response)=>{
+            axios.delete(`http://localhost:8080/consultation/${id}`,{
+              headers : {
+                'access_token': localStorage.getItem("token")
+              }
+            }).then((response)=>{
               window.location.reload()
               setMessage("Berhasil Delete !!!")
           }).catch((err) => console.log("err", err));
@@ -32,7 +36,11 @@ const Consultation = ()=>{
         else if (decode.role === 1){
             url = 'http://localhost:8080/consultations/admin/'+decode.id
         }
-        axios.get(`${url}`).then((response)=>{
+        axios.get(`${url}`,{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             setConsuls(response.data)
         }).catch((err) => console.log("err", err));
     },[decode.role,decode.id])

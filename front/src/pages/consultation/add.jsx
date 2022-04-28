@@ -20,7 +20,11 @@ const AddConsultation = ()=>{
         info
       }
 
-      axios.post('http://localhost:8080/consultation', payload).then((response)=>{
+      axios.post('http://localhost:8080/consultation', payload,{
+        headers : {
+          'access_token': localStorage.getItem("token")
+        }
+      }).then((response)=>{
           setMessage("Data Added !!!")
           e.target.reset()
       }).catch(function (error) {
@@ -29,13 +33,21 @@ const AddConsultation = ()=>{
       })    
     }
     useEffect(()=>{
-        axios.get('http://localhost:8080/doctors').then((response)=>{
+        axios.get('http://localhost:8080/doctors',{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             setDoctors(response.data)
         }).catch((err) => console.log("err", err));
     },[])
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/patient/user/${decode.id}`).then((response)=>{
+        axios.get(`http://localhost:8080/patient/user/${decode.id}`,{
+          headers : {
+            'access_token': localStorage.getItem("token")
+          }
+        }).then((response)=>{
             setPatientId(response.data.id)
         }).catch((err) => console.log("err", err));
     },[decode.id])
