@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import BackgroundLogin from "../../backgroundLogin.png"
+import {Link} from 'react-router-dom';
 
 const Register = ()=>{
   
@@ -32,26 +34,41 @@ const Register = ()=>{
 
 }
     return(
-        <div className="row justify-content-header">
-            <div className="col-md-12">
-              <div className="card mb-3 text-center border-primary">
-                  <div className="card-header">
-                    Register Card
-                  </div>
-                <div className="card-body">
-                    <p>{message}</p>
+      <div className="row justify-content-center">
+      <div className="col-md-4">
+              <div class="card justify-content-center" style={{width: "20rem"}}>
+              <img src={BackgroundLogin} class="card-img-top"  alt=""/>
+                <div class="card-body text-center">
+                  <h5 class="card-title">Register</h5>
+                  <div class="alert alert-success" role="alert">
+                        <p>{message}</p>
+                    </div>
                     <form onSubmit={handleSubmit}>
-                      <input type="text" onChange={(e) => setUsername(e.target.value)} />
-                      <input type="text" onChange={(e) => setPassword(e.target.value)}/>
-                      <input type="text" onChange={(e) => setName(e.target.value)}/>
-                      <input type="date" onChange={(e) => setBirthDate(e.target.value)} />
-                      <input type="text" onChange={(e) => setBirthPlace(e.target.value)}/>
-                      <button type="submit">Register</button>
+                      <div className="form-group p-1">
+                        <input type="text" onChange={(e) => setUsername(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"/>
+                      </div>
+                      <div className="form-group p-1">
+                        <input type="password" onChange={(e) => setPassword(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"/>
+                      </div>
+                      <div className="form-group p-1">
+                        <input type="text" onChange={(e) => setName(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Name"/>
+                      </div>
+                      <div className="form-group p-1">
+                        <input type="date" onChange={(e) => setBirthDate(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date"/>
+                      </div>
+                      <div className="form-group p-1">
+                        <input type="text" onChange={(e) => setBirthPlace(e.target.value)} class="form-control" aria-describedby="emailHelp" placeholder="Enter Date Place"/>
+                      </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </form>
+                    {/* <div className="pt-1">
+                      <strong><Link className='navbar-brand pt-5' to="/login" style={{fontSize: "0.7rem"}}>Login Here!</Link></strong>
+                    </div>       */}
                 </div>
-              </div>              
-            </div>            
-        </div>
+              </div>
+      </div>            
+  </div>
+        
     )
 }
 export default Register;
