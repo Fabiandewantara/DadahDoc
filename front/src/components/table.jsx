@@ -32,12 +32,12 @@ const Table = ({
                 return(
             <tr key={index}>
 
-                <td>{data.id}</td>
+                <td>{index + 1}</td>
                 <td>{data.name}</td>
                 <td>{data.birthDate}</td>
                 <td>{data.birthPlace}</td>
-                <td>{data.scheduleId}</td>
-                <td>{data.userId}</td>
+                <td>{data.Schedule.schedule}</td>
+                <td>{data.User.username}</td>
                 {decode.role === 1?                 
                     <td>
                         <button className="btn btn-sm btn-danger" onClick={()=>{window.confirm('delete this item?') && onDelete(data.id)}}>Delete</button>  

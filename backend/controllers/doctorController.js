@@ -1,13 +1,15 @@
-const {Doctor, User} = require("../models")
+const {Doctor, User, Schedule} = require("../models")
 
 class doctorController{
     static async get(req, res){
         try {
-            const response = await Doctor.findAll()
+            const response = await Doctor.findAll({
+                include: [Schedule, User]
+            })
             return res.status(200).json(response)
 
         } catch (error) {
-            return res.status(500).json(response)
+            return res.status(500).json(error)
         }
     }
     static async getById(req, res){
@@ -20,7 +22,7 @@ class doctorController{
             })
             return res.status(200).json(response)
         } catch (error) {
-            return res.status(500).json(response)
+            return res.status(500).json(error)
         }
     }
     static async getByUser(req, res){
@@ -33,7 +35,7 @@ class doctorController{
             })
             return res.status(200).json(response)
         } catch (error) {
-            return res.status(500).json(response)
+            return res.status(500).json(error)
         }
     }
     static async update(req, res){
