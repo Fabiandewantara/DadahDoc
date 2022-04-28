@@ -165,7 +165,7 @@ const Profile = ()=>{
             <div className="col-md-6">
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
-                    User Card
+                    User Account
                   </div>
                 <div className="card-body">
                   <p>{message}</p>
@@ -193,7 +193,7 @@ const Profile = ()=>{
                 <div className="col-md-6">
                   <div className="card mb-3 text-center border-primary">
                       <div className="card-header">
-                        Profile Card
+                        User Profile
                       </div>
                     <div className="card-body">
                         {renderElement()}
