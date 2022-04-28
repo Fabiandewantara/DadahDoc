@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "db_halodoc",
+    "password": "Fab123",
+    "database": "db_halodoc2",
     "host": "localhost",
     "dialect": "mysql",
     "dialectOptions": {
