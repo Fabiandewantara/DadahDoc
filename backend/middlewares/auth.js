@@ -12,7 +12,7 @@ const authenticate = async(req, res, next)=>{
         let decoded = verifyToken(req.headers.access_token)
         let result = await User.findOne({
             where:{
-                username: decoded.username
+                id: decoded.id
             }
         })
 

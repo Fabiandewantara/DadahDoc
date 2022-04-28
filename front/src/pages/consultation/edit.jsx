@@ -76,7 +76,7 @@ const EditConsultation = () => {
                                     <tbody>
                                         <tr>
                                             <td>Doctor</td>
-                                            <td><select className='form-control' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required>
+                                            <td><select className='form-select' value={doctorId} onChange={(e) => setDoctorId(e.target.value)} required>
                                                 <option value={''}>Pilih</option>
                                                 {
                                                     doctors.map((v, index) => {
