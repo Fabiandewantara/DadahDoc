@@ -17,11 +17,11 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()},
       {
-          schedule: 'Day',
+          schedule: 'Afternoon',
           createdAt: new Date(),
           updatedAt: new Date()},
       {
-          schedule: 'Afternoon',
+          schedule: 'Evening',
           createdAt: new Date(),
           updatedAt: new Date()}], 
     {});
