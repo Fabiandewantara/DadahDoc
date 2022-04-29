@@ -21,7 +21,7 @@ const Doctor = ()=>{
           }
         }).then((response)=>{
             window.location.reload()
-            setMessage("Berhasil Delete !!!")
+            setMessage("Data Berhasil Delete !!!")
         }).catch((err) => console.log("err", err));
       }
 
@@ -43,7 +43,10 @@ const Doctor = ()=>{
                     Data Doctor
                   </div>
                 <div className="card-body">
-                    <p>{message}</p>
+                {message?<div className="alert alert-success alert-dismissible fade show" role="alert">
+                        {message}
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={()=>{setMessage('')}}></button>
+                </div>:false}
                   <Table
                   columns = {columns}
                   datas = {doctors}

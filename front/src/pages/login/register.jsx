@@ -42,7 +42,7 @@ const Register = ()=>{
                   <h5 className="card-title">Register</h5>
                   {message?<div className="alert alert-success alert-dismissible fade show" role="alert">
                         {message}
-                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={()=>{setMessage('')}}></button>
                 </div>:false}
                     <form onSubmit={handleSubmit}>
                       <div className="form-group p-1">

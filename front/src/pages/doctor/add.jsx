@@ -34,7 +34,7 @@ const AddDoctor = ()=>{
           e.target.reset()
       }).catch(function (error) {
         // handle error
-          setMessage("Username Already Exis")
+          setMessage("Username Already Exist")
       })    
     }
     useEffect(()=>{
@@ -57,7 +57,7 @@ const AddDoctor = ()=>{
                 <div className="card-body">
                   {message?<div className="alert alert-success alert-dismissible fade show" role="alert">
                         {message}
-                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={()=>{setMessage('')}}></button>
                 </div>:false}
                     <form onSubmit={handleSubmit}>
                       <table className='table table-hover'>

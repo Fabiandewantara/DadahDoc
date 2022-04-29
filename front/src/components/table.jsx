@@ -52,7 +52,7 @@ const Table = ({
         // <button>click me !</button>
         <>
         
-        <table className="table table-striped table-bordered">
+        <table className="table table-responsive table-striped table-bordered ">
         <thead>
           <tr>
               {type === "consultation"?decode.role === 3?<th colSpan={columns.length+1}><a className="btn btn-sm btn-primary" href={`consultation/add`}>Add</a></th>:false
