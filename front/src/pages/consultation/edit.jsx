@@ -67,9 +67,9 @@ const EditConsultation = () => {
                             Edit Data Consultation
                         </div>
                         <div className="card-body">
-                        {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {message?<div className="alert alert-success alert-dismissible fade show" role="alert">
                         {message}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>:false}
                             <form onSubmit={handleUpdate}>
                                 <table className='table table-hover'>

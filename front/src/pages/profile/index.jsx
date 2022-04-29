@@ -161,9 +161,9 @@ const Profile = ()=>{
         <>
         <div className="row justify-content-center">
             <div className="col-md-6">
-              {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+              {message?<div className="alert alert-success alert-dismissible fade show" role="alert">
                         {message}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>:false}
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
