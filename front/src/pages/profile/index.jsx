@@ -25,7 +25,7 @@ const Profile = ()=>{
             setMessage("Update Berhasil !!!")
             decode.username = username
             localStorage.setItem("decode", JSON.stringify(decode))
-            setTimeout(()=>{window.location.reload()},500);
+            setTimeout(()=>{window.location.reload()},700);
         }).catch(function (error) {
           // handle error
           setMessage(error.response.data.message)
@@ -112,7 +112,6 @@ const Profile = ()=>{
     const renderElement = ()=>{
         if(decode.role === 2){
             return<>
-            <p>{message}</p>
             <form onSubmit={handleSubmitUpdateDoctor}>
             <table className='table table-hover'>
                 <tbody>
@@ -135,7 +134,6 @@ const Profile = ()=>{
             </>
         }else if (decode.role === 3){
             return<>
-            <p>{message}</p>
             <form onSubmit={handleSubmitUpdatePatient}>
               <table className='table table-hover'>
                 <tbody>
@@ -163,15 +161,15 @@ const Profile = ()=>{
         <>
         <div className="row justify-content-center">
             <div className="col-md-6">
+              {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>:false}
               <div className="card mb-3 text-center border-primary">
                   <div className="card-header">
                     User Account
                   </div>
                 <div className="card-body">
-                {message?<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {message}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>:false}
                         <form onSubmit={handleSubmitUpdateUser}>
                           <table className='table table-hover'>
                             <tbody>
